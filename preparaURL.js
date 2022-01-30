@@ -1,28 +1,30 @@
 let arrAnosCarros = ()=>{// array com ids dos anos do carro
+
     let i = 0
     let anos = [1950]
+
     while( i < 8 ){
-        
         anos.push(anos[i]+5)
         i++
     }
+
     while( i < 41 ){
-        
         anos.push(anos[i]+1)
         i++
     }
+
     anos.forEach(ano=>{
         ano.toString()
     })
+    
     return anos.toString().split(',')
-  }
+}
   
 function formataParametrosEmURL(urls){
-    return `${urls[0]}&${urls[1]}&${urls[2]}`
+    return `https://pr.olx.com.br/regiao-de-curitiba-e-paranagua/autos-e-pecas/carros-vans-e-utilitarios?${urls[0]}&${urls[1]}&${urls[2]}`
 }
   
 function formataNomeCarro(str){
-    let urlNome = ''
     const hasUpper = (str) => /[A-Z]/.test(str);
   
     if(hasUpper(str)){
@@ -30,9 +32,8 @@ function formataNomeCarro(str){
         str[str.indexOf(' ')] = '%20'
         str = `${str[0]}%20${str[1]}`
     }
-    
-    urlNome = `q=${str}`
-    return urlNome
+
+    return `q=${str}`
 }
   
 function formataAnoCarro(anoInicio, anoFinal){
@@ -45,30 +46,31 @@ function formataPrecoCarro(precoInicial, precoFinal){
     return `pe=${precoFinal}&ps=${precoInicial}`
 };
 
-function preparaURL(arguments){
-    //const argumento = process.argv.slice()
-    
+function preparaURL(arguments){    
 
     const objPesquisa = {
 
-        nomeCarro : arguments[2],
-        anoInicio : arguments[3],
-        anoFinal : arguments[4],
+        nomeCarro    : arguments[2],
+        anoInicio    : arguments[3],
+        anoFinal     : arguments[4],
         preçoInicial : arguments[5],
-        preçoFinal : arguments[6]
+        preçoFinal   : arguments[6]
 
     }
 
     let urlArray = [
 
         formataPrecoCarro(objPesquisa.preçoInicial, objPesquisa.preçoFinal),
-        formataNomeCarro(objPesquisa.nomeCarro)       ,
+        formataNomeCarro(objPesquisa.nomeCarro),
         formataAnoCarro(objPesquisa.anoInicio, objPesquisa.anoFinal) 
 
     ]
     const url = formataParametrosEmURL(urlArray)
     
-    return url 
+    return {
+        objPesquisa : objPesquisa,
+        url         : url
+    } 
 }
 
 
