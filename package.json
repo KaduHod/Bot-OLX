@@ -1,0 +1,32 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "Crawler com node.js",
+  "main": "index.js",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "puppeteer": "^13.1.1",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaduHod/Bot-OLX.git"
+  },
+  "keywords": [
+    "bot",
+    "carros",
+    "roupas",
+    "imoveis",
+    "OLX"
+  ],
+  "author": "KaduHod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaduHod/Bot-OLX/issues"
+  },
+  "homepage": "https://github.com/KaduHod/Bot-OLX#readme"
+}
